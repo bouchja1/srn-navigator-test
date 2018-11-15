@@ -10,6 +10,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     paddingHorizontal: 20,
     paddingVertical: 10,
+    borderTopColor: "white",
+    borderTopWidth: 1,
   },
 })
 

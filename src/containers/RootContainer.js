@@ -1,6 +1,13 @@
 // @flow
 import React from "react"
-import { Text, SafeAreaView, StyleSheet, View } from "react-native"
+import {
+  Text,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  View,
+  FlatList,
+} from "react-native"
 
 // components
 import { Title, Button, Image } from "../components"
@@ -32,25 +39,39 @@ const styles = StyleSheet.create({
   },
 })
 
+const beers = ["plzeň", "unětice", "bernard"]
+
 export default class RootContainer extends React.PureComponent<null> {
+  static navigationOptions = {
+    title: "Home",
+  }
+
+  state = {
+    count: 0,
+  }
+
+  onButtonPress = () => {
+    this.setState(prevState => ({
+      count: prevState.count + 1,
+    }))
+  }
+
   render() {
     return (
       <SafeAreaView style={styles.outerWrapper}>
         <View style={styles.container}>
-          <Title>Cats are meow</Title>
-          <Text>A little tribute to cats</Text>
-          <View style={styles.imageWrapper}>
-            <Image
-              style={styles.image}
-              source={{ uri: "https://placekitten.com/408/287" }}
-              resizeMode="cover"
-            />
-          </View>
-          <View style={styles.buttons}>
-            <Button theme={Colors.primary} onPress={() => null}>
-              Click for more cats
-            </Button>
-          </View>
+          <Title>{this.state.count}</Title>
+          <Button theme={Colors.primary} onPress={this.onButtonPress}>
+            Add +1
+          </Button>
+          <Button
+            theme={Colors.primary}
+            onPress={() => {
+              this.props.navigation.navigate("Detail")
+            }}
+          >
+            Detail screen
+          </Button>
         </View>
       </SafeAreaView>
     )
