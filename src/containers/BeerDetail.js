@@ -11,9 +11,10 @@ export default class DetailContainer extends React.PureComponent<null> {
   }
 
   render() {
+    const { item } = this.props.navigation.state.params
     return (
       <View>
-        <Text>beers</Text>
+        <Text>{Beers[item.id - 1].description}</Text>
       </View>
     )
   }

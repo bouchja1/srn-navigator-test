@@ -20,18 +20,21 @@ export default class BeersContainer extends React.PureComponent<null> {
     title: "Beers",
   }
 
-  _onPressBeer = (id: number) => {
-    this.props.navigation.navigate("BeerDetail", {
-      item: {
-        image: "https://www.placecage.com/c/200/300",
-      },
-    })
-  }
+  _onPressBeer = () => {}
 
   _keyExtractor = item => item.id
 
   _renderItem = ({ item }) => (
-    <Button title={item.name} onPress={this._onPressBeer(item.id)} />
+    <Button
+      title={item.name}
+      onPress={() => {
+        this.props.navigation.navigate("BeerDetail", {
+          item: {
+            id: item.id,
+          },
+        })
+      }}
+    />
   )
 
   render() {

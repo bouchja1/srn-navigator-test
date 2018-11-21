@@ -1,6 +1,9 @@
 import { createStackNavigator } from "react-navigation"
 import RootContainer from "./RootContainer"
 import DetailContainer from "./Detail"
+import BeersContainer from "./Beers"
+import BeerDetailContainer from "./BeerDetail"
+import ContactContainer from "./Contact"
 import TabNavigator from "./TabNavigator"
 
 const HomeNavigator = createStackNavigator({
@@ -9,13 +12,12 @@ const HomeNavigator = createStackNavigator({
 })
 
 const BeersNavigator = createStackNavigator({
-  Home: RootContainer,
-  Detail: DetailContainer,
+  Beers: BeersContainer,
+  BeerDetail: BeerDetailContainer,
 })
 
 const ContactNavigator = createStackNavigator({
-  Home: RootContainer,
-  Detail: DetailContainer,
+  Contact: ContactContainer,
 })
 
 export default TabNavigator.createAppContainer(
