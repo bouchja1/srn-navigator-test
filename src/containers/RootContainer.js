@@ -56,6 +56,14 @@ export default class RootContainer extends React.PureComponent<null> {
     }))
   }
 
+  navigate = () => {
+    this.props.navigation.navigate("Detail", {
+      item: {
+        image: "https://www.placecage.com/c/200/300",
+      },
+    })
+  }
+
   render() {
     return (
       <SafeAreaView style={styles.outerWrapper}>
@@ -64,12 +72,7 @@ export default class RootContainer extends React.PureComponent<null> {
           <Button theme={Colors.primary} onPress={this.onButtonPress}>
             Add +1
           </Button>
-          <Button
-            theme={Colors.primary}
-            onPress={() => {
-              this.props.navigation.navigate("Detail")
-            }}
-          >
+          <Button theme={Colors.primary} onPress={this.navigate}>
             Detail screen
           </Button>
         </View>
