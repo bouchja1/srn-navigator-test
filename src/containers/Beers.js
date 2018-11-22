@@ -20,9 +20,7 @@ export default class BeersContainer extends React.PureComponent<null> {
     title: "Beers",
   }
 
-  _onPressBeer = () => {}
-
-  _keyExtractor = item => item.id
+  _keyExtractor = item => `item-${item.id}`
 
   _renderItem = ({ item }) => (
     <Button
